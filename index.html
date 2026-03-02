@@ -1498,9 +1498,10 @@
         body: JSON.stringify(payload)
       });
       const data = await res.json();
-      if (data.id) {
-        const payLink = `${window.location.origin}/pay/${data.id}`;
-        alert(`Contract created!\n\nID: ${data.id}\n\nPayment link:\n${payLink}`);
+      const id = data.id || (data.contract && data.contract.id);
+      const payLink = data.payment_link || (id ? `${window.location.origin}/pay/${id}` : null);
+      if (id) {
+        alert(`✅ Contract created!\n\nID: ${id}\n\nPayment link:\n${payLink}\n\nSend ${data.contract?.deposit_required || ''} SOL to complete.`);
       } else {
         alert('Error: ' + JSON.stringify(data));
       }
