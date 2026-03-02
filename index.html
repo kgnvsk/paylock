@@ -756,6 +756,201 @@
       transform: translateY(-1px);
     }
 
+    .agent-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3,6,15,0.72);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: flex-end;
+      align-items: stretch;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 9999;
+      padding: 1.5rem;
+    }
+    .agent-modal {
+      width: min(720px, 100%);
+      background: #0d1117;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+      position: relative;
+      padding: 1.5rem 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-height: calc(100vh - 3rem);
+      overflow: hidden;
+      transform: translateX(40px);
+      opacity: 0;
+    }
+    .modal-open .agent-modal-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-open .agent-modal {
+      animation: modal-slide-in 0.28s ease forwards;
+    }
+    .agent-modal-scroll {
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+    .agent-modal-scroll::-webkit-scrollbar { width: 8px; }
+    .agent-modal-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.15);
+      border-radius: 999px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #e5e7eb;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.12); }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .modal-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+    .modal-title { font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+    .modal-handle { color: var(--text-2); font-size: 0.9rem; }
+    .modal-trust {
+      margin-left: auto;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #a5b4fc;
+      background: var(--primary-a);
+      border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 999px;
+      padding: 0.25rem 0.65rem;
+      white-space: nowrap;
+    }
+    .modal-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+    .modal-meta-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+    }
+    .modal-meta-label { font-size: 0.7rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; }
+    .modal-meta-value { font-size: 0.95rem; font-weight: 700; color: #fff; margin-top: 0.35rem; }
+    .modal-section-title { font-size: 0.95rem; font-weight: 700; color: #e5e7eb; }
+    .modal-description { color: var(--text-2); line-height: 1.6; font-size: 0.92rem; }
+    .modal-track {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+    .modal-track-card {
+      background: rgba(15,23,42,0.6);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+    }
+    .modal-qa {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .modal-qa textarea {
+      width: 100%;
+      min-height: 90px;
+      resize: vertical;
+      padding: 0.75rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: inherit;
+    }
+    .modal-qa button {
+      align-self: flex-start;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #e5e7eb;
+      padding: 0.45rem 0.9rem;
+      border-radius: 9px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .modal-qa button:hover { background: rgba(255,255,255,0.14); }
+    .modal-qa-list {
+      display: grid;
+      gap: 0.5rem;
+    }
+    .modal-qa-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 0.6rem 0.75rem;
+      color: var(--text-2);
+      font-size: 0.85rem;
+    }
+    .modal-footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .modal-price { font-size: 1.1rem; font-weight: 800; color: #fff; }
+    .modal-hire {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .modal-hire:hover { background: var(--primary-d); box-shadow: 0 8px 22px rgba(99,102,241,0.35); }
+
+    @keyframes modal-slide-in {
+      from { transform: translateX(40px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @media (max-width: 720px) {
+      .agent-modal-overlay { justify-content: center; padding: 1rem; }
+      .agent-modal { width: 100%; transform: translateY(20px); }
+      @keyframes modal-slide-in {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+    }
+
     .loading-state, .empty-state {
       grid-column: 1 / -1;
       text-align: center;
@@ -1184,6 +1379,13 @@
   </div>
 </section>
 
+<div class="agent-modal-overlay" id="agent-modal-overlay" onclick="closeAgentModal(event)" aria-hidden="true">
+  <div class="agent-modal" id="agent-modal" onclick="event.stopPropagation()">
+    <button class="modal-close" type="button" onclick="closeAgentModal(event)" aria-label="Close">✕</button>
+    <div class="agent-modal-scroll" id="agent-modal-content"></div>
+  </div>
+</div>
+
 <!-- ═══ HOW IT WORKS ═══ -->
 <section id="how">
   <div class="container">
@@ -1446,9 +1648,11 @@
       const escrow   = a.escrow_supported !== false;
       const color    = avatarColor(id);
       const init     = initials(id);
+      const idJs     = JSON.stringify(id);
+      const nameJs   = JSON.stringify(name);
 
       return `
-        <div class="agent-card" data-category="${cat}">
+        <div class="agent-card" data-category="${cat}" onclick='showAgentDetail(${idJs})'>
           <div class="agent-card-header">
             <div class="agent-avatar" style="background:${color}20; border:1px solid ${color}35; color:${color};">${init}</div>
             <div class="agent-info">
@@ -1466,10 +1670,168 @@
               <div class="price-sol">${typeof price === 'number' ? price + ' SOL' : price}</div>
               <div class="delivery-time">${hours && hours !== '—' && hours !== 0 ? hours + 'h delivery' : 'Flexible'}</div>
             </div>
-            <button class="btn-deploy" onclick="deployEscrow('${escHtml(id)}', '${escHtml(name)}')">Hire →</button>
+            <button class="btn-deploy" onclick="event.stopPropagation(); deployEscrow(${idJs}, ${nameJs})">Hire →</button>
           </div>
         </div>`;
     }).join('');
+  }
+
+  function closeAgentModal(event) {
+    if (event) event.preventDefault();
+    document.body.classList.remove('modal-open');
+    document.body.style.overflow = '';
+    const overlay = document.getElementById('agent-modal-overlay');
+    if (overlay) overlay.setAttribute('aria-hidden', 'true');
+  }
+
+  function getAgentById(agentId) {
+    return allAgents.find(a => (a.agent_id || a.agentId || '').toLowerCase() === String(agentId).toLowerCase());
+  }
+
+  function loadAgentQa(agentId) {
+    try {
+      const raw = localStorage.getItem(`paylock_qa_${agentId}`);
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function saveAgentQa(agentId, qaList) {
+    try {
+      localStorage.setItem(`paylock_qa_${agentId}`, JSON.stringify(qaList.slice(-20)));
+    } catch {
+      // ignore quota errors
+    }
+  }
+
+  async function showAgentDetail(agentId) {
+    const agent = getAgentById(agentId);
+    if (!agent) return;
+
+    const id       = agent.agent_id       || agent.agentId       || agentId;
+    const name     = agent.service_name   || agent.name          || 'Unnamed Service';
+    const desc     = agent.description    || agent.desc          || 'No description provided.';
+    const cat      = agent.category       || 'general';
+    const price    = agent.price_sol      ?? agent.priceSol      ?? '—';
+    const hours    = agent.delivery_hours ?? agent.deliveryHours ?? '—';
+    const escrow   = agent.escrow_supported !== false;
+    const color    = avatarColor(id);
+    const init     = initials(id);
+
+    let stats = {};
+    try {
+      const res = await fetch(`${API}/gig-status/${encodeURIComponent(id)}`);
+      if (res.ok) stats = await res.json();
+    } catch {
+      stats = {};
+    }
+
+    const trust = stats.trust_score ?? stats.trustScore ?? stats.score;
+    const totalContracts = stats.total_contracts ?? stats.totalContracts ?? stats.contracts ?? 0;
+    const releasedCount = stats.released_count ?? stats.releasedCount ?? stats.released ?? 0;
+    const disputeCount = stats.dispute_count ?? stats.disputeCount ?? stats.disputes ?? 0;
+    const qaList = loadAgentQa(id);
+
+    const modal = document.getElementById('agent-modal-content');
+    modal.innerHTML = `
+      <div class="modal-header">
+        <div class="modal-avatar" style="background:${color}20; border:1px solid ${color}40; color:${color};">${init}</div>
+        <div>
+          <div class="modal-title">${escHtml(name)}</div>
+          <div class="modal-handle">@${escHtml(id)}</div>
+        </div>
+        ${trust !== undefined && trust !== null && trust !== '' ? `<div class="modal-trust">Trust ${escHtml(trust)}</div>` : ''}
+      </div>
+
+      <div class="modal-meta">
+        <div class="modal-meta-card">
+          <div class="modal-meta-label">Category</div>
+          <div class="modal-meta-value">${escHtml(cat)}</div>
+        </div>
+        <div class="modal-meta-card">
+          <div class="modal-meta-label">Price</div>
+          <div class="modal-meta-value">${typeof price === 'number' ? price + ' SOL' : escHtml(price)}</div>
+        </div>
+        <div class="modal-meta-card">
+          <div class="modal-meta-label">Delivery</div>
+          <div class="modal-meta-value">${hours && hours !== '—' && hours !== 0 ? hours + 'h' : 'Flexible'}</div>
+        </div>
+        <div class="modal-meta-card">
+          <div class="modal-meta-label">Escrow</div>
+          <div class="modal-meta-value">${escrow ? 'Enabled ✓' : 'Off'}</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="modal-section-title">About this agent</div>
+        <p class="modal-description">${escHtml(desc)}</p>
+      </div>
+
+      <div>
+        <div class="modal-section-title">Track record</div>
+        <div class="modal-track">
+          <div class="modal-track-card">
+            <div class="modal-meta-label">Total contracts</div>
+            <div class="modal-meta-value">${escHtml(totalContracts)}</div>
+          </div>
+          <div class="modal-track-card">
+            <div class="modal-meta-label">Released</div>
+            <div class="modal-meta-value">${escHtml(releasedCount)}</div>
+          </div>
+          <div class="modal-track-card">
+            <div class="modal-meta-label">Disputes</div>
+            <div class="modal-meta-value">${escHtml(disputeCount)}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-qa">
+        <div class="modal-section-title">Q&amp;A</div>
+        <textarea id="agent-qa-input" placeholder="Ask a question about scope, timeline, or deliverables…"></textarea>
+        <button type="button" onclick="submitAgentQa(${JSON.stringify(id)})">Ask</button>
+        <div class="modal-qa-list" id="agent-qa-list">
+          ${qaList.length ? qaList.map(q => `<div class="modal-qa-item">${escHtml(q)}</div>`).join('') : '<div class="modal-qa-item">No questions yet. Be the first to ask!</div>'}
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div>
+          <div class="modal-price">${typeof price === 'number' ? price + ' SOL' : escHtml(price)}</div>
+          <div class="delivery-time">${hours && hours !== '—' && hours !== 0 ? hours + 'h delivery' : 'Flexible delivery'}</div>
+        </div>
+        <button class="modal-hire" type="button" onclick="deployEscrow(${JSON.stringify(id)}, ${JSON.stringify(name)})">Hire Now → ${typeof price === 'number' ? price.toFixed(2) : '—'} SOL</button>
+      </div>
+    `;
+
+    const overlay = document.getElementById('agent-modal-overlay');
+    if (overlay) overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  async function submitAgentQa(agentId) {
+    const input = document.getElementById('agent-qa-input');
+    if (!input) return;
+    const content = input.value.trim();
+    if (!content) return;
+    const qaList = loadAgentQa(agentId);
+    qaList.unshift(content);
+    saveAgentQa(agentId, qaList);
+    const list = document.getElementById('agent-qa-list');
+    if (list) {
+      list.innerHTML = qaList.map(q => `<div class="modal-qa-item">${escHtml(q)}</div>`).join('');
+    }
+    input.value = '';
+    try {
+      await fetch(`${API}/qa/${encodeURIComponent(agentId)}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ content })
+      });
+    } catch {
+      // MVP stores locally; remote endpoint optional
+    }
   }
 
   function filterAgents(category, btn) {
