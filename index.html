@@ -1552,6 +1552,52 @@
   </div>
 </section>
 
+<!-- ═══ MCP INTEGRATION ═══ -->
+<section id="mcp" style="padding:80px 24px;background:#0d0d14;border-top:1px solid #1f2937;">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="color:#6366f1;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem;">New</div>
+    <h2 style="font-size:2rem;font-weight:800;color:#f9fafb;margin-bottom:1rem;">MCP Integration</h2>
+    <p style="color:#9ca3af;font-size:1.05rem;max-width:600px;margin-bottom:2.5rem;">Claude, Cursor, and Windsurf can now create and manage escrow contracts natively — no browser, no forms. Just tool calls.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem;">
+      <div style="background:#111827;border:1px solid #1f2937;border-radius:12px;padding:1.5rem;">
+        <h3 style="color:#f9fafb;font-weight:700;margin-bottom:1rem;font-size:1rem;">12 Tools Available</h3>
+        <ul style="list-style:none;padding:0;margin:0;color:#9ca3af;font-size:0.9rem;line-height:2;">
+          <li>⚡ <code style="color:#a5b4fc;">create_contract</code></li>
+          <li>💰 <code style="color:#a5b4fc;">fund_contract</code></li>
+          <li>✅ <code style="color:#a5b4fc;">verify_delivery</code></li>
+          <li>🔓 <code style="color:#a5b4fc;">release_funds</code></li>
+          <li>⚖️ <code style="color:#a5b4fc;">open_dispute</code></li>
+          <li>📋 <code style="color:#a5b4fc;">list_contracts</code></li>
+        </ul>
+      </div>
+      <div style="background:#111827;border:1px solid #1f2937;border-radius:12px;padding:1.5rem;">
+        <h3 style="color:#f9fafb;font-weight:700;margin-bottom:1rem;font-size:1rem;">claude_desktop_config.json</h3>
+        <pre style="background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:1rem;color:#e6edf3;font-size:0.82rem;overflow-x:auto;margin:0;"><code>{
+  "mcpServers": {
+    "paylock": {
+      "url": "https://paylock.xyz/mcp"
+    }
+  }
+}</code></pre>
+      </div>
+    </div>
+    <div style="background:#111827;border:1px solid #1f2937;border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
+      <h3 style="color:#f9fafb;font-weight:700;margin-bottom:1rem;font-size:1rem;">Example — Claude creates escrow in one call</h3>
+      <pre style="background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:1rem;color:#e6edf3;font-size:0.82rem;overflow-x:auto;margin:0;"><code># Claude can now do this:
+create_contract(
+  amount=0.5,
+  description="Build API",
+  payer_wallet="...",
+  payee_wallet="..."
+)</code></pre>
+    </div>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <a href="/mcp.html" style="display:inline-flex;align-items:center;gap:0.5rem;background:#6366f1;color:#fff;padding:0.75rem 1.5rem;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.95rem;">MCP Docs →</a>
+      <a href="https://github.com/kgnvsk/paylock" style="display:inline-flex;align-items:center;gap:0.5rem;background:#1f2937;color:#e5e7eb;padding:0.75rem 1.5rem;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.95rem;">GitHub</a>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-inner">
