@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <defs>
+    <linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00D9FF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <!-- Singularity icon: concentric rings with a central point -->
+  <g transform="translate(40,40)">
+    <circle cx="0" cy="0" r="28" fill="none" stroke="url(#sg)" stroke-width="1.5" opacity="0.3"/>
+    <circle cx="0" cy="0" r="20" fill="none" stroke="url(#sg)" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="0" cy="0" r="12" fill="none" stroke="url(#sg)" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="0" cy="0" r="5" fill="url(#sg)" filter="url(#glow)"/>
+    <!-- orbital arc -->
+    <ellipse cx="0" cy="0" rx="22" ry="8" fill="none" stroke="url(#sg)" stroke-width="1" opacity="0.6" transform="rotate(-30)"/>
+    <ellipse cx="0" cy="0" rx="22" ry="8" fill="none" stroke="url(#sg)" stroke-width="1" opacity="0.6" transform="rotate(90)"/>
+  </g>
+  <!-- Text: Singularity -->
+  <text x="80" y="36" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="url(#sg)" letter-spacing="-0.5">Singularity</text>
+  <!-- Dot separator -->
+  <circle cx="204" cy="32" r="2.5" fill="#00D9FF"/>
+  <!-- cv -->
+  <text x="212" y="36" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="300" fill="#00D9FF" letter-spacing="1">cv</text>
+  <!-- Tagline -->
+  <text x="80" y="56" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#8B8FA8" letter-spacing="2">YOUR CAREER INTELLIGENCE</text>
+</svg>
